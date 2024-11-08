@@ -1,0 +1,90 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">รายละเอียดสินค้า</h5>
+    <ol class="breadcrumb list-unstyled mt-0 mb-0 p-0">
+        <li class="breadcrumb-item d-inline-block position-relative">
+            <a routerLink="/dashboard" class="d-inline-block position-relative">
+                <i class="material-symbols-outlined">home</i>
+                Dashboard
+            </a>
+        </li>
+        <li class="breadcrumb-item d-inline-block position-relative">
+            <a routerLink="/dashboard/ecommerce-page/products-list" class="d-inline-block position-relative">
+                Product Details
+            </a>
+        </li>
+        <li class="breadcrumb-item d-inline-block position-relative">
+            {{product?.productName || 'รายละเอียดสินค้า'}}
+        </li>
+    </ol>
+</div>
+
+<!-- Loading State -->
+<mat-card class="mb-25" *ngIf="loading">
+    <mat-card-content>
+        <div class="d-flex justify-content-center align-items-center p-5">
+            <mat-spinner diameter="40"></mat-spinner>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<!-- Error State -->
+<mat-card class="mb-25" *ngIf="error">
+    <mat-card-content>
+        <div class="text-center p-5">
+            <i class="material-symbols-outlined error-icon">error</i>
+            <h3>ไม่พบข้อมูลสินค้า</h3>
+            <div class="error-message">ไม่สามารถโหลดข้อมูลสินค้าได้ กรุณาลองใหม่อีกครั้ง</div>
+            <button mat-raised-button color="primary" routerLink="/dashboard/ecommerce-page/products-list">
+                กลับไปหน้ารายการสินค้า
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<!-- Product Details Card -->
+<mat-card class="product-details-card mb-25" *ngIf="product && !loading">
+    <mat-card-content>
+        <div class="row">
+            <!-- รูปภาพสินค้า -->
+            <div class="col-lg-6">
+                <div class="product-image-container">
+                    <img [src]="product.productPicture || 'assets/images/default-product.png'"
+                         [alt]="product.productName"
+                         class="product-image">
+                </div>
+            </div>
+
+            <!-- รายละเอียดสินค้า -->
+            <div class="col-lg-6">
+                <div class="product-info">
+                    <div class="stock-badge" *ngIf="inStock">
+                        <i class="material-symbols-outlined">check</i>
+                        มีสินค้า
+                    </div>
+
+                    <h2 class="product-title">{{product.productName}}</h2>
+
+                    <div class="description mt-4">
+                        {{product.description}}
+                    </div>
+
+                    <ul class="features mt-4">
+                        <li><i class="material-symbols-outlined">local_shipping</i> จัดส่งฟรี</li>
+                        <li><i class="material-symbols-outlined">verified</i> รับประกันสินค้า</li>
+                        <li><i class="material-symbols-outlined">update</i> คืนสินค้าได้ภายใน 7 วัน</li>
+                    </ul>
+
+                    <div class="actions mt-4">
+                        <button mat-raised-button color="primary" (click)="onEdit(product.productId)">
+                            <i class="material-symbols-outlined">edit</i> แก้ไข
+                        </button>
+                        <button mat-raised-button color="warn" (click)="onDelete(product.productId)">
+                            <i class="material-symbols-outlined">delete</i> ลบ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

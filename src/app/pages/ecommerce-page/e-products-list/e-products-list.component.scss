@@ -1,0 +1,349 @@
+::ng-deep {
+    .products-list-card {
+        .mat-mdc-card-header {
+            .mat-mdc-card-header-text {
+                .mat-mdc-card-title {
+                    line-height: initial;
+                    order: 2;
+                }
+                .mat-mdc-card-subtitle {
+                    order: 1;
+                }
+            }
+        }
+        .mat-mdc-tab-group {
+            --mat-stepper-header-selected-state-icon-background-color: var(--primaryColor);
+            --mat-stepper-header-edit-state-icon-background-color: var(--primaryColor);
+            --mdc-tab-indicator-active-indicator-color: var(--primaryColor);
+            --mat-tab-header-active-focus-indicator-color: var(--primaryColor);
+            --mat-tab-header-active-hover-indicator-color: var(--primaryColor);
+
+            .mat-mdc-tab-header {
+                margin-bottom: 25px;
+            }
+            .mat-mdc-tab-label-container {
+                border-width: 0;
+            }
+            &.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header {
+                .mat-mdc-tab {
+                    flex-grow: unset !important;
+                }
+            }
+            .mat-mdc-tab-ripple {
+                border-radius: 7px;
+            }
+            .mat-mdc-tab-labels {
+                gap: 15px;
+            }
+            .mdc-tab {
+                height: 45px;
+                border-radius: 7px;
+                background-color: #F6F7F9;
+                padding: {
+                    left: 30px;
+                    right: 30px;
+                };
+                .mdc-tab__text-label {
+                    color: var(--blackColor);
+                    transition: unset;
+                    font-weight: 600;
+                }
+                &.mdc-tab--active {
+                    background-color: var(--primaryColor);
+
+                    .mdc-tab__text-label {
+                        color: var(--whiteColor);
+                    }
+                    &:focus {
+                        .mdc-tab__text-label {
+                            color: var(--whiteColor);
+                        }
+                    }
+                    &:hover {
+                        .mdc-tab__text-label {
+                            color: var(--whiteColor);
+                        }
+                    }
+                }
+            }
+            .mat-mdc-tab {
+                .mdc-tab__ripple {
+                    &::before {
+                        border-radius: 7px;
+                    }
+                }
+                .mdc-tab-indicator__content--underline {
+                    border-color: var(--primaryColor);
+                    display: none;
+                }
+            }
+            .mat-mdc-tab-header-pagination-before, .mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-after {
+                padding-left: 0;
+            }
+            .mat-mdc-tab-header-rtl .mat-mdc-tab-header-pagination-before, .mat-mdc-tab-header-pagination-after {
+                padding-right: 0;
+            }
+        }
+        &.component-dark-theme {
+            .mat-mdc-tab-group {
+                .mdc-tab {
+                    background-color: #15203c;
+
+                    .mdc-tab__text-label {
+                        color: var(--whiteColor);
+                    }
+                    &.mdc-tab--active {
+                        background-color: var(--primaryColor);
+
+                        .mdc-tab__text-label {
+                            color: var(--whiteColor);
+                        }
+                        &:focus {
+                            .mdc-tab__text-label {
+                                color: var(--whiteColor);
+                            }
+                        }
+                        &:hover {
+                            .mdc-tab__text-label {
+                                color: var(--whiteColor);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    ::ng-deep {
+        .products-list-card {
+            .mat-mdc-card-header {
+                .mat-mdc-card-header-text {
+                    display: block;
+                }
+            }
+            .mat-mdc-tab-group {
+                .mat-mdc-tab-header {
+                    margin-bottom: 17px;
+                }
+                .mat-mdc-tab-labels {
+                    gap: 10px;
+                }
+                .mdc-tab {
+                    height: 42px;
+                    padding: {
+                        left: 25px;
+                        right: 25px;
+                    };
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {
+
+    ::ng-deep {
+        .products-list-card {
+            .mat-mdc-tab-group {
+                .mat-mdc-tab-header {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}
+
+.search-filter-row {
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+
+    .search-box {
+        position: relative;
+        margin-bottom: 20px;
+
+        label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            i {
+
+                font-size: 20px;
+            }
+        }
+
+        .input-search {
+            width: 100%;
+            height: 48px;
+            padding: 0 15px 0 45px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            background: #fff;
+            transition: all 0.3s ease;
+
+            &:focus {
+                outline: none;
+                border-color: #1a73e8;
+            }
+
+            &::placeholder {
+                color: #999;
+            }
+        }
+    }
+
+    .mat-form-field {
+        width: 100%;
+
+        ::ng-deep {
+            .mat-mdc-form-field-flex {
+                background-color: #fff;
+            }
+
+            .mat-mdc-text-field-wrapper {
+                background-color: #fff;
+                border-radius: 8px;
+            }
+        }
+    }
+
+    .action-buttons-container {
+        margin-top: 20px;
+
+        button {
+            height: 48px;
+            padding: 0 20px;
+
+            i {
+                margin-right: 8px;
+                font-size: 20px;
+                vertical-align: middle;
+            }
+        }
+
+        .search-btn, .clear-btn {
+            border-color: #e0e0e0;
+        }
+
+        .add-btn {
+            background-color: #1a73e8;
+            color: white;
+        }
+    }
+}
+
+::ng-deep {
+    .mat-form-field {
+        .mat-form-field-wrapper {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .mat-form-field-underline {
+            display: none;
+        }
+
+        .mat-form-field-infix {
+            border-top: none;
+            padding: 0.75em 0;
+        }
+    }
+}
+
+.products-table-card {
+  .product-info {
+    .product-img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  }
+
+  .status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+
+    &.published {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    &:not(.published) {
+      background-color: #fafafa;
+      color: #616161;
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+::ng-deep {
+  .mat-mdc-table {
+    background: transparent;
+
+    .mat-mdc-header-cell {
+      background-color: #fafafa;
+      font-weight: 500;
+    }
+
+    .mat-mdc-row {
+      &:hover {
+        background-color: #f5f5f5;
+      }
+    }
+  }
+}
+
+.product-image {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 4px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.product-info {
+    a {
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+            color: #1976d2;
+        }
+    }
+}
