@@ -1,6 +1,3 @@
-# Creating a README.md file content based on the provided information
-
-readme_content = """
 # KhontamwebAngularTest-V.1.0.0
 
 This is the front-end application for `KhontamWebAPI`, designed for managing product data, including product creation, viewing, updating, and deletion. Built with Angular, the application interacts with the `KhontamWebAPI` backend and utilizes MySQL for data storage and Cloudinary for media management.
